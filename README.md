@@ -1,2 +1,3 @@
 # LuaFunctions
-利用Lua实现一些常用的函数
+
+所有函数皆基于Lua5.1实现
