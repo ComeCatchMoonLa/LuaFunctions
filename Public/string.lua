@@ -12,13 +12,13 @@ _G.string.split = function(str, delimiter)
 end
 
 -- 数字转字符串, 可设置保留几位小数, 以及是否影藏小数位末尾的0
-_G.string.num2Str = function(num, precision, hideZero)
-    if precision == nil then precision = 2 end
+_G.string.num2Str = function(num, decimals, hideZero)
+    if decimals == nil then decimals = 2 end
     if hideZero == nil then hideZero = false end
 
     if hideZero and num == 0 then return "0" end
 
-    local str = ("%." .. precision .. 'f'):format(num)
+    local str = ("%." .. decimals .. 'f'):format(num)
 
     if hideZero and str:find('.') then
         local cnt = 0
