@@ -1,5 +1,5 @@
--- random
--- version: 1.0
+-- <Random>
+-- version: 1.2
 -- by: CatchMoon
 
 ---@diagnostic disable-next-line: param-type-mismatch
