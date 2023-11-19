@@ -37,20 +37,20 @@ _G.Random.InsideUnitCircle = function(radius)
 end
 
 -- 根据权重(概率)随机
-_G.Random.ValueByWeight = function(valueInfoList)
-	local weightSum = 0
+_G.Random.ValueByWeight = function(valueInfoList, valueKey, weightKey)
+    local weightSum = 0
 
-	for _idx, valueInfo in ipairs(valueInfoList) do
-		weightSum = weightSum + valueInfo[2]
-	end
-	local rollWeight = math.random() * weightSum
-	local curWeight = 0
-	for _idx, valueInfo in ipairs(valueInfoList) do
-		curWeight = curWeight + valueInfo[2]
-		if curWeight > rollWeight then
-			return valueInfo[1]
-		end
-	end
+    for _idx, valueInfo in ipairs(valueInfoList) do
+        weightSum = weightSum + valueInfo[weightKey]
+    end
+    local rollWeight = math.random() * weightSum
+    local curWeight = 0
+    for _idx, valueInfo in ipairs(valueInfoList) do
+        curWeight = curWeight + valueInfo[weightKey]
+        if curWeight > rollWeight then
+            return valueInfo[valueKey]
+        end
+    end
 end
 
 return {}
